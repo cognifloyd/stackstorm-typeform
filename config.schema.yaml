@@ -1,0 +1,54 @@
+---
+  api_key:
+    description: "Typeform API Key"
+    type: "string"
+    secret: true
+  form_id:
+    description: "ID for your typeform Form"
+    type: "string"
+    secret: false
+  completed:
+    description: "Set to False to retrieve all forms, not just completed. Default True"
+    type: "boolean"
+    default: true
+  sensor:
+    description: "Sensor specific settings."
+    type: "object"
+    required: false
+    additionalProperties: false
+    properties:
+      retries:
+        description: "Number of retries to attempt"
+        type: "integer"
+        default: 3
+      retry_delay:
+        description: "Delay in seconds between retries"
+        type: "integer"
+        default: 30
+      timeout:
+        description: "Time in seconds to wait before timeout"
+        type: "integer"
+        default: 20
+  mysql:
+    description: "MySQL specific settings."
+    type: "object"
+    required: true
+    additionalProperties: false
+    properties:
+      host:
+        description: "Hostname/IP of MySQL DB"
+        type: "string"
+        required: true
+      user:
+        description: "Username to for MySQL"
+        type: "string"
+        required: true
+      pass:
+        description: "Password for MySQL"
+        type: "string"
+        secret: true
+        required: true
+      name:
+        description: "Name of MySQL DB"
+        type: "string"
+        required: true
