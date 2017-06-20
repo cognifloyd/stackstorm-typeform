@@ -35,6 +35,10 @@ to `/opt/stackstorm/configs/typeform.yaml` and edit as required.
 
 See the Sensors and Actions sections below for configuration details.
 
+**Note** : When modifying the configuration in `/opt/stackstorm/configs/` please
+           remember to tell StackStorm to load these new values by running
+           `st2ctl reload --register-configs`
+
 ## Sensors
 
 This pack ships with a sensor that checks the Typeform API for submissions to a given form, then compares that list against a MySQL database.  If the submission is not yet in the database, it submits a trigger with the information from the submission.  Currently the sensor is limited to a specific format of the form.  Required fields in the config file are:
