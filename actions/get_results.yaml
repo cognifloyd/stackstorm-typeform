@@ -1,6 +1,6 @@
 ---
   name: "get_results"
-  runner_type: "run-python"
+  runner_type: "python-script"
   description: "Get Typeform registration results"
   enabled: true
   entry_point: "get_results.py"
