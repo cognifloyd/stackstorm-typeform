@@ -1,5 +1,9 @@
 # Change Log
 
+# 0.5.0
+
+- Use the mysqlclient project instead of the MySQL-python (dead) project
+
 # 0.4.1
 
 - Import `Action` from `st2comon.runners.base_action`
