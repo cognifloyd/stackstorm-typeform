@@ -1,6 +1,8 @@
 Typeform Integration
 ====================
 
+[![CircleCI](https://img.shields.io/circleci/build/github/StackStorm-Exchange/stackstorm-typeform/master?token=25c04c41e6d6419fc249d5ca411ece5de1118c0f)](https://circleci.com/gh/StackStorm-Exchange/stackstorm-typeform/tree/master)
+
 This integration pack provides a sensor to query a Typeform form for new submissions.
 
 ## Prerequisites
