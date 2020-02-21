@@ -2,11 +2,11 @@
 # See ../requirements.txt
 
 import eventlet
-import httplib
 import MySQLdb
 import MySQLdb.cursors
 import requests
 from six.moves import urllib_parse
+from six.moves.http_client import OK as HTTP_OK
 
 from st2reactor.sensor.base import PollingSensor
 
@@ -129,7 +129,7 @@ class TypeformRegistrationSensor(PollingSensor):
         if not response:
             raise Exception('Failed to connect to TypeForm API.')
 
-        if response.status_code != httplib.OK:
+        if response.status_code != HTTP_OK:
             failure_reason = ('Failed to retrieve registrations: %s \
                 (status code: %s)' % (response.text, response.status_code))
             self.logger.error(failure_reason)
@@ -144,7 +144,7 @@ class TypeformRegistrationSensor(PollingSensor):
         try:
             c.execute(query)
             self.db.commit()
-        except MySQLdb.Error, e:
+        except MySQLdb.Error as e:
             self.logger.info(str(e))
             return False
 

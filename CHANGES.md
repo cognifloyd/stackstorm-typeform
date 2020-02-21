@@ -1,5 +1,10 @@
 # Change Log
 
+# 0.5.1
+
+- Python 3 fixups
+- Add explicit support for Python 2 and 3
+
 # 0.5.0
 
 - Use the mysqlclient project instead of the MySQL-python (dead) project

@@ -1,7 +1,6 @@
-import httplib
 import requests
-import urllib
-import urlparse
+from six.moves import http_client
+from six.moves.urllib.parse import (urlencode, urljoin)
 
 from st2common.runners.base_action import Action
 
@@ -17,7 +16,7 @@ class TypeformAction(Action):
     def run(self, form_id, api_key, completed=True):
         api_key = api_key if api_key else self.config['api_key']
         completed = str(completed).lower()
-        url = urlparse.urljoin(BASE_URL, form_id)
+        url = urljoin(BASE_URL, form_id)
 
         headers = {}
         headers['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -26,11 +25,11 @@ class TypeformAction(Action):
                   "completed": completed
                   }
 
-        data = urllib.urlencode(params)
+        data = urlencode(params)
         response = requests.get(url=url,
                                 headers=headers, params=data)
 
-        if response.status_code != httplib.OK:
+        if response.status_code != http_client.OK:  # noqa pylint: disable=no-member
             failure_reason = ('Failed to retrieve registrations: %s \
                 (status code: %s)' %
                               (response.text, response.status_code))
